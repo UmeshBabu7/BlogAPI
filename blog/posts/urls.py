@@ -3,5 +3,5 @@ from .import views
 
 urlpatterns = [
     path('',views.post_list),
-    path('detail/',views.post_detail)
+    path('detail/<int:id>/',views.post_detail)
 ]
