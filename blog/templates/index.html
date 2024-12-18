@@ -6,10 +6,9 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>{{title}}</h1>
 
     {% for obj in queryset %}
-    <h1>{{obj.title}}</h1>
+    <a href="{% url 'posts:detail' obj.id %}">{{obj.title}}</a>
     <p>{{obj.content}}</p>
     <p>{{obj.updated}}</p>
     <p>{{obj.timestamp}}</p>
