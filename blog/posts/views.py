@@ -35,3 +35,20 @@ def post_create(request):
         "form":form
     }
     return render(request,'post_form.html',context)
+
+def post_update(request,id):
+    instance=get_object_or_404(Post,id=id)
+    form=PostForm(request.POST or None, instance=instance)
+    if form.is_valid:
+        instance=form.save(commit=False)
+        instance.save()
+
+    context={
+        "instance":instance,
+        "form":form,
+        "title":instance.title
+    }
+    return render(request,'post_form.html',context)
+
+
+
