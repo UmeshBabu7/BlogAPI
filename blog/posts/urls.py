@@ -4,5 +4,6 @@ from .import views
 app_name='posts'
 urlpatterns = [
     path('',views.post_list),
-    path('detail/<int:id>/',views.post_detail,name='detail')
+    path('detail/<int:id>/',views.post_detail,name='detail'),
+    path('create_post/',views.post_create)
 ]
