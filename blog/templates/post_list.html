@@ -4,11 +4,12 @@
 {% block content %}
 
     {% for obj in queryset %}
-    <a href="{% url 'posts:detail' obj.id %}">{{obj.title}}</a>
+    <h1><a href="{% url 'posts:detail' obj.id %}">{{obj.title}}</a></h1>
     <p>{{obj.content}}</p>
     <p>{{obj.updated}}</p>
     <p>{{obj.timestamp}}</p>
     <p>{{obj.id}}</p>
+   
 
     {% endfor %}
 
