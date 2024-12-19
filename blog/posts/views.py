@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from .models import Post
 from .forms import PostForm
 from django.contrib import messages
@@ -56,6 +56,14 @@ def post_update(request,id):
         "title":instance.title
     }
     return render(request,'post_form.html',context)
+
+
+def post_delete(request,id):
+    instance=get_object_or_404(Post,id=id)
+    instance.delete()
+    messages.success(request,'successfully deleted.')
+    return redirect('posts:list')
+
 
 
 
