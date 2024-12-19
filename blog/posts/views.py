@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Post
 from .forms import PostForm
+from django.contrib import messages
 
 
 
@@ -31,6 +32,10 @@ def post_create(request):
         print(form.cleaned_data.get("title")) 
         instance.save()
 
+        messages.success(request,'successful')
+    else:
+        messages.error(request,'not successful')
+
     context={
         "form":form
     }
@@ -42,6 +47,8 @@ def post_update(request,id):
     if form.is_valid:
         instance=form.save(commit=False)
         instance.save()
+
+        messages.success(request,'item saved.')
 
     context={
         "instance":instance,
