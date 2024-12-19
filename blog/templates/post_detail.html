@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Detail{% endblock %}
 
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
-   
+{% block content %}
+
     <h1>{{instance.title}}</h1>
     <p>{{instance.content}}</p>
     <p>{{instance.updated}}</p>
     <p>{{instance.timestamp}}</p>
-    <p>{{instance.id}}</p>    
+    <p>{{instance.id}}</p>  
+    
+{% endblock %}
 
-</body>
-</html>

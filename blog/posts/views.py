@@ -13,7 +13,7 @@ def post_list(request):
         "queryset":queryset,
         "title":"home page...."
     }
-    return render(request,'index.html',context)
+    return render(request,'post_list.html',context)
 
 def post_detail(request,id):
     instance=get_object_or_404(Post,id=id)

@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}List of posts{% endblock %}
+
+{% block content %}
 
     {% for obj in queryset %}
     <a href="{% url 'posts:detail' obj.id %}">{{obj.title}}</a>
@@ -15,7 +11,6 @@
     <p>{{obj.id}}</p>
 
     {% endfor %}
-    
 
-</body>
-</html>
+{% endblock %}
+    
