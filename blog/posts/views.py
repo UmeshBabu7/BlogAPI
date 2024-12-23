@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Post
 from .forms import PostForm
 
+
 # Create your views here.
 
 def post_create(request):
@@ -11,6 +12,8 @@ def post_create(request):
         instance=form.save(commit=False)
         print(form.cleaned_data.get("title"))
         instance.save()
+
+        return redirect('posts:detail', id=instance.id) 
 
     context={
             "form":form
@@ -43,6 +46,8 @@ def post_update(request,id):
     if form.is_valid():
         instance=form.save(commit=False)
         instance.save()
+
+        return redirect('posts:detail', id=instance.id)
     
     context={
         "title":instance.title,
