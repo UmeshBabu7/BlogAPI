@@ -12,7 +12,10 @@ def post_detail(request):
 
 
 def post_list(request):
-    return render(request,'post_list.html')
+    context={
+        "title":"List of posts"
+    }
+    return render(request,'post_list.html',context)
 
 
 def post_update(request):
