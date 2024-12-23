@@ -1,6 +1,8 @@
-<!--DOCTYPE html -->
-<html>
-<body>
+{% extends 'base.html' %}
+{% block title%}list{% endblock %}
+
+{% block content %}
+
 <h1>{{title}} is working!</h1>
 
 {% for obj in object_list %}
@@ -11,11 +13,6 @@
 {{obj.timestamp}}<br/>
 {{obj.id}}<br/>
 
-
-
 {% endfor %}
 
-
-
-</body>
-</html>
+{% endblock %}
