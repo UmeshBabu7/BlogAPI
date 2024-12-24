@@ -16,6 +16,7 @@ def post_create(request):
     form=PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance=form.save(commit=False)
+        instance.user=request.user
         print(form.cleaned_data.get("title"))
         instance.save()
 
